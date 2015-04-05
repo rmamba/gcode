@@ -19,7 +19,6 @@ class MCP23S17:
 
 	def close(self):
 		GPIO.setup(self._cs, GPIO.IN)
-		GPIO.output(self._cs, False)
 
 	def writeByte1(self, address, data):
 		GPIO.output(self._cs, False)

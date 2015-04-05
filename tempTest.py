@@ -14,8 +14,12 @@ temp = TEMP(spi, 11, 12)
 if __name__ == "__main__":
 	try:
 		while True:
-			print 'T0: ', temp.readT(0)
-			print 'T1: ', temp.readT(1)
+			T0, T0Internal = temp.readT(0)
+			print 'T0: {0:7.2f}, {1:6.2f}'.format(T0, T0Internal)
+			T1, T1Internal = temp.readT(1)
+			print 'T1: {0:7.2f}, {1:6.2f}'.format(T1, T1Internal), 
+			print '\033[2A'
 			time.sleep(.25)
 	except KeyboardInterrupt:
+		temp.close()
 		spi.close()

@@ -27,6 +27,10 @@ class MAX31855:
 		GPIO.setup(self._cs1, GPIO.OUT)
 		GPIO.output(self._cs1, True)
 
+	def close(self):
+		GPIO.setup(self._cs0, GPIO.IN)
+		GPIO.setup(self._cs1, GPIO.IN)
+
 	def _setCS(self, temp):
 		cs = self._cs0
 		if temp == 1:

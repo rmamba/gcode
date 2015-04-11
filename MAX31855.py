@@ -43,7 +43,7 @@ class MAX31855:
 			cs = self._cs1
 		GPIO.output(cs, False)
 
-	def readT(self, temp):
+	def read(self, temp):
 		self._clrCS(temp)
 #		raw = spi.xfer2([0x00, 0x00, 0x00, 0x00])
 		raw = self._spi.readbytes(4)

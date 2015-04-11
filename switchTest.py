@@ -17,11 +17,7 @@ if __name__ == "__main__":
 	sw.initialise()
 	try:
 		while True:
-			switches = '{0:016b}'.format(sw.readSwitches())
-#			if switches[0] == '0':
-#				switches = '\033[91m' + switches
-#			else:
-#				switches = '\033[92m' + switches
+			switches = '{0:08b}'.format(sw.readSwitches())
 			switches = switches.replace('1', '\033[92m*').replace('0', '\033[91m0')
 			print '\033[92mSwitches: ', switches, '\r', 
 			sys.stdout.flush()
